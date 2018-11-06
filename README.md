@@ -1,0 +1,1 @@
+# pazimor.github.io
