@@ -1,0 +1,46 @@
+menu ul {
+  padding: 0px;
+  width: 310px;
+  list-style-type: none;
+}
+
+menu li:hover{
+  background-color: rgba(18, 119, 157, 1);
+  cursor: pointer;
+}
+
+menu li {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  padding: 0px;
+  text-align: center;
+  line-height: 40px;
+
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+menu li bal {
+  text-decoration: none;
+}
+
+menu{
+  top: -200px;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  color: rgb(255, 255, 255);
+  position: fixed;
+  display: block;
+  z-index: 1;
+  margin: 0;
+  margin-left: calc(50% - 200px);
+  width: 310px;
+}
