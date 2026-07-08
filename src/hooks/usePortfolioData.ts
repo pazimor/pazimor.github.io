@@ -68,7 +68,7 @@ export function usePortfolioData(): State {
       .catch(
         (e: unknown) =>
           !cancelled &&
-          setProjectsError(e instanceof Error ? e.message : "Erreur inconnue")
+          setProjectsError(e instanceof Error ? e.message : "Unknown error")
       )
       .finally(() => !cancelled && setLoadingProjects(false));
     return () => {

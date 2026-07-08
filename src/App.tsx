@@ -3,7 +3,6 @@ import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { Sidebar } from "@/components/Sidebar";
 import { StackFilter } from "@/components/StackFilter";
 import { Parcours } from "@/components/Parcours";
-import { ContactCTA } from "@/components/ContactCTA";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Tab = "perso" | "pro";
@@ -75,8 +74,6 @@ export default function App() {
             loadingProjects={loadingProjects}
             projectsError={projectsError}
           />
-
-          {config && <ContactCTA email={config.email} />}
         </main>
       </div>
     </div>

@@ -53,14 +53,14 @@ export function Parcours({
 
   return (
     <section id="parcours">
-      <h2 className="mb-1 text-[22px] font-bold text-foreground">Parcours</h2>
+      <h2 className="mb-1 text-[22px] font-bold text-foreground">Work</h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        Projets personnels & expérience en entreprise
+        Personal projects & professional experience
       </p>
 
       <div className="mb-5 inline-flex gap-1 rounded-[10px] border border-border bg-surface-raised p-1">
-        {tabBtn("perso", "Projets perso")}
-        {tabBtn("pro", "Expérience pro")}
+        {tabBtn("perso", "Personal projects")}
+        {tabBtn("pro", "Work experience")}
       </div>
 
       {/* Sliding track: two 50% panels inside a 200% flex row. */}
@@ -84,7 +84,7 @@ export function Parcours({
               </p>
             ) : projects.length === 0 ? (
               <span className="font-mono text-xs text-[#52525b]">
-                Aucun projet pour ce filtre.
+                No project for this filter.
               </span>
             ) : (
               projects.map((p) => <ProjectCard key={p.url} project={p} />)
@@ -95,7 +95,7 @@ export function Parcours({
           <div className="flex w-1/2 shrink-0 flex-col gap-5 pl-4">
             {experiences.length === 0 ? (
               <span className="font-mono text-xs text-[#52525b]">
-                Aucune expérience pour ce filtre.
+                No experience for this filter.
               </span>
             ) : (
               experiences.map((e, i) => (

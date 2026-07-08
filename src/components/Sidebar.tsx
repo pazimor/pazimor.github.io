@@ -6,7 +6,6 @@ import {
   Mail,
   Menu as MenuIcon,
   Diamond,
-  AtSign,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import githubIcon from "@/assets/github.svg";
@@ -19,8 +18,7 @@ interface Props {
 
 const NAV = [
   { href: "#stack", label: "Stack", icon: MenuIcon },
-  { href: "#parcours", label: "Parcours", icon: Diamond },
-  { href: "#contact", label: "Contact", icon: AtSign },
+  { href: "#parcours", label: "Work", icon: Diamond },
 ];
 
 export function Sidebar({ config }: Props) {
@@ -62,11 +60,14 @@ export function Sidebar({ config }: Props) {
           : "md:w-[84px] md:items-center md:px-5"
       )}
     >
-      {/* collapse toggle */}
+      {/* collapse toggle — dedicated button at the top of the sidebar (desktop) */}
       <button
         onClick={() => setCollapsed((c) => !c)}
-        aria-label={collapsed ? "Déplier" : "Replier"}
-        className="absolute right-[-13px] top-1/2 z-10 hidden h-[26px] w-[26px] -translate-y-1/2 items-center justify-center rounded-full border border-[#3f3f46] bg-[#111113] text-[#a1a1aa] hover:text-foreground md:flex"
+        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        className={cn(
+          "hidden h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#3f3f46] bg-[#111113] text-[#a1a1aa] hover:text-foreground md:flex",
+          expanded ? "md:self-end" : "md:self-center"
+        )}
       >
         {collapsed ? (
           <ChevronRight className="h-4 w-4" />
@@ -114,15 +115,10 @@ export function Sidebar({ config }: Props) {
           </p>
 
           <div className="hidden w-full flex-col gap-2.5 border-y border-border py-4 md:flex">
-            {infoRow("Localisation", config.location)}
-            {infoRow("Disponibilité", config.availability)}
+            {infoRow("Location", config.location)}
+            {infoRow("Availability", config.availability)}
             {infoRow("Focus", config.focus)}
-            {infoRow(
-              "Email",
-              <a href={`mailto:${config.email}`} className="text-primary">
-                {config.email}
-              </a>
-            )}
+            {infoRow("Email", config.email)}
           </div>
         </>
       )}
@@ -183,11 +179,11 @@ export function Sidebar({ config }: Props) {
           className="flex w-full items-center justify-center gap-2 rounded-md border border-[#3f3f46] px-3.5 py-2.5 text-[13px] font-medium text-foreground hover:bg-surface-tag/50"
         >
           <Download className="h-4 w-4" />
-          {expanded && <span>Télécharger le CV</span>}
+          {expanded && <span>Download CV</span>}
         </button>
         {cvHint && expanded && (
           <span className="text-center font-mono text-[11px] text-muted-foreground">
-            CV bientôt disponible
+            CV coming soon
           </span>
         )}
       </div>

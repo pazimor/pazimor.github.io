@@ -1,23 +1,23 @@
 {
-  "_comment": "Surcharge les cartes projets récupérées depuis GitHub. La CLÉ = le nom EXACT du dépôt GitHub. Tous les champs sont optionnels : ne mets que ce que tu veux remplacer (le reste vient de GitHub automatiquement). Mets \"hidden\": true pour masquer un dépôt.",
+  "_comment": "Overrides the project cards fetched from GitHub. The KEY = the EXACT GitHub repo name. Every field is optional: only set what you want to replace (the rest comes from GitHub automatically). Set \"hidden\": true to hide a repo.",
 
   "AI-nimator": {
-    "tagline": "texte → mouvement",
-    "description": "Projet text-to-motion",
+    "tagline": "text → motion",
+    "description": "Text-to-motion project",
     "bullets": [
-      "Pipeline complet : dataset, entraînement CLIP, puis entraînement du générateur",
-      "Configuration centralisée (archi réseau, CLIP, génération, dataset) via YAML",
-      "Outils CLI : inspection de checkpoints, vérif des dimensions, export Collada"
+      "Full pipeline: dataset, CLIP training, then generator training",
+      "Centralized configuration (network architecture, CLIP, generation, dataset) via YAML",
+      "CLI tools: checkpoint inspection, dimension checks, Collada export"
     ],
     "tech": ["Python", "PyTorch", "Poetry"]
   },
 
   "marketplace": {
-    "tagline": "memory & code maping for Claude Code",
+    "tagline": "memory & code mapping for Claude Code",
     "bullets": [
-      "Index de code par embeddings, zéro appel LLM à l'ingestion",
-      "Mémoire épisodique arbitrée une fois par session",
-      "Graphe roadmap ↔ code : chaque tâche reliée aux symboles produits"
+      "Embedding-based code index, zero LLM calls at ingestion",
+      "Episodic memory arbitrated once per session",
+      "Roadmap ↔ code graph: each task linked to the symbols it produced"
     ],
     "tech": ["Python", "Docker", "MCP", "FalkorDB"]
   }

@@ -69,28 +69,28 @@ function techFrom(repo: GithubRepo): string[] {
 function relativeDate(iso: string): string {
   const d = new Date(iso);
   const days = Math.floor((Date.now() - d.getTime()) / 86_400_000);
-  if (days <= 0) return "aujourd'hui";
-  if (days < 30) return `il y a ${days} j`;
+  if (days <= 0) return "today";
+  if (days < 30) return `${days} day(s) ago`;
   const months = Math.floor(days / 30);
-  if (months < 12) return `il y a ${months} mois`;
-  return `il y a ${Math.floor(months / 12)} an(s)`;
+  if (months < 12) return `${months} month(s) ago`;
+  return `${Math.floor(months / 12)} year(s) ago`;
 }
 
 /** Auto data from GitHub, with the projects.json override merged on top. */
 function toProject(repo: GithubRepo, override?: ProjectOverride): Project {
-  const autoBullets: string[] = [`Mis à jour ${relativeDate(repo.pushed_at)}`];
+  const autoBullets: string[] = [`Updated ${relativeDate(repo.pushed_at)}`];
   if (repo.forks_count > 0) autoBullets.push(`${repo.forks_count} fork(s)`);
-  if (repo.homepage) autoBullets.push(`Démo : ${repo.homepage}`);
+  if (repo.homepage) autoBullets.push(`Demo: ${repo.homepage}`);
 
   return {
     name: humanize(repo.name),
     tagline:
       override?.tagline ??
-      (repo.language ? repo.language.toLowerCase() : "dépôt public"),
+      (repo.language ? repo.language.toLowerCase() : "public repo"),
     description:
       override?.description ??
       repo.description ??
-      "Pas encore de description sur ce dépôt.",
+      "No description yet for this repo.",
     bullets: override?.bullets ?? autoBullets,
     tech: override?.tech ?? techFrom(repo),
     stars: repo.stargazers_count,
@@ -141,8 +141,8 @@ export async function fetchProjects(
       if (stale) return applySelection(stale, cfg, overrides);
       throw new Error(
         res.status === 403
-          ? "Limite de l'API GitHub atteinte, réessaie dans une heure."
-          : `GitHub a répondu ${res.status}.`
+          ? "GitHub API rate limit reached, try again in an hour."
+          : `GitHub responded ${res.status}.`
       );
     }
     const repos = (await res.json()) as GithubRepo[];

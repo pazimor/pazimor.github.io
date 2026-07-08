@@ -10,9 +10,9 @@ interface Props {
 export function StackFilter({ tags, active, onToggle }: Props) {
   return (
     <section id="stack">
-      <h2 className="mb-1 text-xl font-bold text-foreground">Stack technique</h2>
+      <h2 className="mb-1 text-xl font-bold text-foreground">Tech stack</h2>
       <p className="mb-3.5 text-[13px] text-muted-foreground">
-        Clique un tag pour filtrer les projets et l'expérience ci-dessous
+        Click a tag to filter the projects and experience below
       </p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => {
@@ -35,7 +35,7 @@ export function StackFilter({ tags, active, onToggle }: Props) {
       </div>
       {active && (
         <span className="mt-2 block font-mono text-[11px] text-primary">
-          Filtre actif — clique à nouveau sur le tag pour l'effacer
+          Filter active — click the tag again to clear it
         </span>
       )}
     </section>
