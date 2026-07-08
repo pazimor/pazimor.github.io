@@ -4,3 +4,4 @@ dist/
 .mcp-memory/
 *-handoff.zip
 *.local
+.vite/
