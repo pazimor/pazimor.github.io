@@ -1,0 +1,24 @@
+{
+  "_comment": "Surcharge les cartes projets récupérées depuis GitHub. La CLÉ = le nom EXACT du dépôt GitHub. Tous les champs sont optionnels : ne mets que ce que tu veux remplacer (le reste vient de GitHub automatiquement). Mets \"hidden\": true pour masquer un dépôt.",
+
+  "AI-nimator": {
+    "tagline": "texte → mouvement",
+    "description": "Projet text-to-motion",
+    "bullets": [
+      "Pipeline complet : dataset, entraînement CLIP, puis entraînement du générateur",
+      "Configuration centralisée (archi réseau, CLIP, génération, dataset) via YAML",
+      "Outils CLI : inspection de checkpoints, vérif des dimensions, export Collada"
+    ],
+    "tech": ["Python", "PyTorch", "Poetry"]
+  },
+
+  "marketplace": {
+    "tagline": "memory & code maping for Claude Code",
+    "bullets": [
+      "Index de code par embeddings, zéro appel LLM à l'ingestion",
+      "Mémoire épisodique arbitrée une fois par session",
+      "Graphe roadmap ↔ code : chaque tâche reliée aux symboles produits"
+    ],
+    "tech": ["Python", "Docker", "MCP", "FalkorDB"]
+  }
+}
