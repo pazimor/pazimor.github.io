@@ -1,0 +1,24 @@
+{
+  "_comment": "Overrides the project cards fetched from GitHub. The KEY = the EXACT GitHub repo name. Every field is optional: only set what you want to replace (the rest comes from GitHub automatically). Set \"hidden\": true to hide a repo.",
+
+  "AI-nimator": {
+    "tagline": "text → motion",
+    "description": "Text-to-motion project",
+    "bullets": [
+      "Full pipeline: dataset, CLIP training, then generator training",
+      "Centralized configuration (network architecture, CLIP, generation, dataset) via YAML",
+      "CLI tools: checkpoint inspection, dimension checks, Collada export"
+    ],
+    "tech": ["Python", "PyTorch", "Poetry"]
+  },
+
+  "marketplace": {
+    "tagline": "memory & code mapping for Claude Code",
+    "bullets": [
+      "Embedding-based code index, zero LLM calls at ingestion",
+      "Episodic memory arbitrated once per session",
+      "Roadmap ↔ code graph: each task linked to the symbols it produced"
+    ],
+    "tech": ["Python", "Docker", "MCP", "FalkorDB"]
+  }
+}

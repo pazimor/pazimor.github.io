@@ -1,0 +1,31 @@
+[
+  {
+    "role": "Senior Software Engineer",
+    "company": "Weda, Montpellier, France",
+    "period": "may 2021 — Present",
+    "bullets": [
+      "Contributed to the evolution of a large-scale ETL pipeline handling high-volume medical data imports, with a strong focus on data integrity and compliance",
+      "Contributed to frontend architecture evolution using multi-version Angular alongside legacy ASPX components",
+      "Initiated and structured the first CI/CD pipelines, increasing deployment reliability and automation"
+    ],
+    "tech": ["C# .net", "Angular", "Node.js", "docker", "azure devops"]
+  },
+  {
+    "role": "Full-Stack Engineer (Sole Developer)",
+    "company": "1001 Intérim’air, Montpellier, France",
+    "period": "june 2020 — november 2020",
+    "bullets": [
+      "Designed and shipped a cross-platform mobile app (iOS & Android) as sole engineer, using Ionic (Angular-based) with Firebase for auth and real-time sync"
+    ],
+    "tech": ["Typscript", "ionic framework", "firebase"]
+  },
+  {
+    "role": "IT Hardware Technician",
+    "company": "Techmatic Recycling Services Ltd, Dublin, Ireland",
+    "period": "July 2016 – December 2016",
+    "bullets": [
+      "Processed and certified data destruction on enterprise hardware for major tech clients (Facebook, Blizzard), in compliance with data security standards"
+    ],
+    "tech": ["IT"]
+  }
+]

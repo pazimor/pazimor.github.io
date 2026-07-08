@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * shadcn/ui design tokens — dark theme, blue accent (#3b82f6),
+ * matched to the Claude Design handoff. Values are HSL channels.
+ */
+@layer base {
+  :root,
+  .dark {
+    --background: 240 10% 1.2%; /* #030304 */
+    --foreground: 0 0% 98%; /* #fafafa */
+
+    --card: 240 6% 4%; /* #09090b */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 6% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%; /* #3b82f6 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 12%; /* #1c1c1f */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%; /* #27272a */
+    --muted-foreground: 240 4% 46%; /* #71717a */
+
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%; /* #27272a */
+    --input: 240 5% 26%; /* #3f3f46 */
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface-base text-foreground font-sans antialiased;
+    margin: 0;
+  }
+  ::selection {
+    background: #3b82f6;
+    color: #fff;
+  }
+}
