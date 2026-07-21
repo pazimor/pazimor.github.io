@@ -2,6 +2,7 @@ import { ArrowUpRight, Star } from "lucide-react";
 import type { Project } from "@/data/types";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -17,14 +18,16 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="flex items-center gap-1 font-mono text-xs text-[#a1a1aa]">
             <Star className="h-3.5 w-3.5" /> {project.stars}
           </span>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1 rounded-md border border-[#3f3f46] px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-surface-tag/60"
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="gap-1 bg-transparent [&_svg]:size-3.5"
           >
-            GitHub <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
+            <a href={project.url} target="_blank" rel="noreferrer">
+              GitHub <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </Button>
         </div>
       </div>
 

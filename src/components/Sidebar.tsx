@@ -8,6 +8,8 @@ import {
   Diamond,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import githubIcon from "@/assets/github.svg";
 import linkedinIcon from "@/assets/linkedin.svg";
 import type { SiteConfig } from "@/data/types";
@@ -15,6 +17,9 @@ import type { SiteConfig } from "@/data/types";
 interface Props {
   config: SiteConfig;
 }
+
+/** Shared sizing for the three icon actions (GitHub / LinkedIn / Email). */
+const ACTION_BTN = "h-auto flex-1 gap-1.5 px-1.5 py-2.5";
 
 const NAV = [
   { href: "#stack", label: "Stack", icon: MenuIcon },
@@ -61,20 +66,18 @@ export function Sidebar({ config }: Props) {
       )}
     >
       {/* collapse toggle — dedicated button at the top of the sidebar (desktop) */}
-      <button
+      <Button
+        variant="outline"
+        size="icon"
         onClick={() => setCollapsed((c) => !c)}
         aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         className={cn(
-          "hidden h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#3f3f46] bg-[#111113] text-[#a1a1aa] hover:text-foreground md:flex",
+          "hidden h-8 w-8 shrink-0 bg-surface-card text-[#a1a1aa] hover:text-foreground md:inline-flex",
           expanded ? "md:self-end" : "md:self-center"
         )}
       >
-        {collapsed ? (
-          <ChevronRight className="h-4 w-4" />
-        ) : (
-          <ChevronLeft className="h-4 w-4" />
-        )}
-      </button>
+        {collapsed ? <ChevronRight /> : <ChevronLeft />}
+      </Button>
 
       {/* avatar */}
       <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border md:h-[72px] md:w-[72px]">
@@ -114,11 +117,15 @@ export function Sidebar({ config }: Props) {
             {config.bio}
           </p>
 
-          <div className="hidden w-full flex-col gap-2.5 border-y border-border py-4 md:flex">
-            {infoRow("Location", config.location)}
-            {infoRow("Availability", config.availability)}
-            {infoRow("Focus", config.focus)}
-            {infoRow("Email", config.email)}
+          <div className="hidden w-full md:block">
+            <Separator />
+            <div className="flex flex-col gap-2.5 py-4">
+              {infoRow("Location", config.location)}
+              {infoRow("Availability", config.availability)}
+              {infoRow("Focus", config.focus)}
+              {infoRow("Email", config.email)}
+            </div>
+            <Separator />
           </div>
         </>
       )}
@@ -143,44 +150,52 @@ export function Sidebar({ config }: Props) {
       {/* actions */}
       <div className="flex w-full flex-col gap-2 md:mt-auto">
         <div className={cn("flex gap-2", collapsed && "flex-col")}>
-          <a
-            href={`https://github.com/${config.githubUser}`}
-            target="_blank"
-            rel="noreferrer"
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-primary px-1.5 py-2.5 text-xs font-medium text-white hover:bg-primary/90"
+          <Button asChild size="sm" className={ACTION_BTN}>
+            <a
+              href={`https://github.com/${config.githubUser}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={githubIcon} alt="" className="h-4 w-4 shrink-0" />
+              {expanded && <span>GitHub</span>}
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className={cn(ACTION_BTN, "bg-transparent")}
           >
-            <img src={githubIcon} alt="" className="h-4 w-4 shrink-0" />
-            {expanded && <span>GitHub</span>}
-          </a>
-          <a
-            href={config.linkedinUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-md border border-[#3f3f46] px-1.5 py-2.5 text-xs font-medium text-foreground hover:bg-surface-tag/50"
+            <a href={config.linkedinUrl} target="_blank" rel="noreferrer">
+              <img
+                src={linkedinIcon}
+                alt=""
+                className="h-[15px] w-[15px] shrink-0 rounded-[3px]"
+              />
+              {expanded && <span>LinkedIn</span>}
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className={cn(ACTION_BTN, "bg-transparent")}
           >
-            <img
-              src={linkedinIcon}
-              alt=""
-              className="h-[15px] w-[15px] shrink-0 rounded-[3px]"
-            />
-            {expanded && <span>LinkedIn</span>}
-          </a>
-          <a
-            href={`mailto:${config.email}`}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-md border border-[#3f3f46] px-1.5 py-2.5 text-xs font-medium text-foreground hover:bg-surface-tag/50"
-          >
-            <Mail className="h-4 w-4 shrink-0" />
-            {expanded && <span>Email</span>}
-          </a>
+            <a href={`mailto:${config.email}`}>
+              <Mail className="h-4 w-4 shrink-0" />
+              {expanded && <span>Email</span>}
+            </a>
+          </Button>
         </div>
 
-        <button
+        <Button
+          variant="outline"
           onClick={onDownloadCV}
-          className="flex w-full items-center justify-center gap-2 rounded-md border border-[#3f3f46] px-3.5 py-2.5 text-[13px] font-medium text-foreground hover:bg-surface-tag/50"
+          className="h-auto w-full bg-transparent px-3.5 py-2.5 text-[13px]"
         >
-          <Download className="h-4 w-4" />
+          <Download />
           {expanded && <span>Download CV</span>}
-        </button>
+        </Button>
         {cvHint && expanded && (
           <span className="text-center font-mono text-[11px] text-muted-foreground">
             CV coming soon

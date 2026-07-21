@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   tags: string[];
@@ -18,18 +19,19 @@ export function StackFilter({ tags, active, onToggle }: Props) {
         {tags.map((tag) => {
           const isActive = active === tag;
           return (
-            <button
+            <Button
               key={tag}
+              size="sm"
+              variant={isActive ? "default" : "outline"}
               onClick={() => onToggle(tag)}
+              aria-pressed={isActive}
               className={cn(
-                "cursor-pointer rounded-full border px-3 py-[5px] font-mono text-xs transition-colors",
-                isActive
-                  ? "border-primary bg-primary text-white"
-                  : "border-[#3f3f46] bg-transparent text-foreground hover:border-[#52525b]"
+                "h-auto rounded-full px-3 py-[5px] font-mono text-xs",
+                !isActive && "bg-transparent"
               )}
             >
               {tag}
-            </button>
+            </Button>
           );
         })}
       </div>
